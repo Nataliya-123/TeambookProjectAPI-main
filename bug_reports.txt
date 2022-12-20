@@ -1,0 +1,20 @@
+1.After sending a request containing filter_value in the response, an error with status code 500 is returned
+Precondition: GET /users/deactivated have 2 query parameter:token(string) and filter_value(string)
+STR:
+1.1 send a request with the  parameter token only = the request worked, the list of all users was returned - ok
+1.2 send a request with the  parameters token and filter_value
+AR: {
+  "status": 500,
+  "error": "Internal Server Error"
+}
+ER: user data is returned, containing in the name the value entered in filter_value
+______________________
+
+2.Differences in the mandatory filling of parameters in the API and on the web
+API - POST /users (Create new User)
+2.1 The "tags" parameter is mandatory in the API, optional on the web.
+2.2 The "team_ids" parameter is optional in the API - mandatory on the web
+___________________
+3.
+
+
